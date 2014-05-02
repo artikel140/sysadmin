@@ -1,0 +1,23 @@
+#
+#   Filename = header_strip 
+#   Function = Stripping as much meta-data out of the headers of mail
+#   
+#   Define in main.cf: header_checks = regexp:/etc/postfix/header_strip 
+#
+#Replace mail.example.org with own FQDN server
+/^Received: from (.* \([-._[:alnum:]]+ \[[.[:digit:]]{7,15}\]\)).*\(Authenticated sender: ([^)]+)\).*by (mail\.example\.org) \(([^)]+)\) with (E?SMTPS?A?)
+id ([A-F[:digit:]]+).*/ REPLACE Received: from [127.0.0.1] (localhost [127.0.0.1]) with $5 id $6
+
+/^Header: IfContains/  IGNORE   
+/^Received:/    IGNORE
+/^User-Agent:/  IGNORE
+/^Message-ID:/  IGNORE
+/^X-Mailer:/    IGNORE
+/^X-MimeOLE:/   IGNORE
+/^X-MSMail-Priority:/   IGNORE
+/^X-Spam-Status:/   IGNORE
+/^X-Spam-Level:/    IGNORE
+/^X-Sanitizer:/     IGNORE
+/^X-Originating-IP:/    IGNORE
+/^X-Received:/ /IGNORE
+
