@@ -1,4 +1,6 @@
-sysadmin
+Sysadmin
 ========
 
-Sysadmin -  Privacy aware admin Scripts
+Privacy Aware - Admin Scripts
+
+This repository contains scripts,hints&tips for sysadministrators. 
